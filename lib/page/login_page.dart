@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrinest_app/page/boarding_page.dart';
 import 'package:nutrinest_app/page/home_page.dart';
 
 class Login extends StatefulWidget {
@@ -101,7 +102,6 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       const SizedBox(height: 16),
-
                       const Text(
                         'Password',
                         style: TextStyle(
@@ -132,7 +132,6 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 12),
                       Align(
                         alignment: Alignment.centerRight,
@@ -144,13 +143,15 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-
                       const SizedBox(height: 8),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home_page_()));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => BoardingPages()));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.redAccent,

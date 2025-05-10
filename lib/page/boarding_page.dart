@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrinest_app/page/home_page.dart';
 import 'package:nutrinest_app/page/login_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -174,7 +175,7 @@ class _BoardingPagesState extends State<BoardingPages> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Login(),
+                          builder: (context) => home_page_(),
                         ),
                       );
                     }
