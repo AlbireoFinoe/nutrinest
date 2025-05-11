@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutrinest_app/page/home_page.dart';
+import 'package:nutrinest_app/page/main_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -150,7 +150,7 @@ class _LoginState extends State<Login> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>home_page_()));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>main_page()));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.redAccent,
