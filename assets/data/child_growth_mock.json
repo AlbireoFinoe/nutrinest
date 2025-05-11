@@ -1,0 +1,51 @@
+{
+  "name": "Haylie Westervelt",
+  "age": "1 tahun 6 bulan 24 hari",
+  "lastUpdated": "06/11/2024",
+  "weight": 9.4,
+  "height": 80.0,
+  "headCircumference": 47.5,
+  "status": "Normal",
+  "growthData": [
+    {
+      "x": 0,
+      "y": 5
+    },
+    {
+      "x": 2,
+      "y": 6.5
+    },
+    {
+      "x": 4,
+      "y": 8
+    },
+    {
+      "x": 6,
+      "y": 9
+    },
+    {
+      "x": 8,
+      "y": 10
+    },
+    {
+      "x": 10,
+      "y": 10.8
+    },
+    {
+      "x": 12,
+      "y": 11.5
+    },
+    {
+      "x": 14,
+      "y": 12
+    },
+    {
+      "x": 16,
+      "y": 12.2
+    },
+    {
+      "x": 18,
+      "y": 12.4
+    }
+  ]
+}

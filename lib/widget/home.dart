@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../page/growth_detail.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -42,7 +43,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -54,23 +55,22 @@ class _HomeState extends State<Home> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(24),
                     bottomRight: Radius.circular(24),
                   ),
                 ),
-                padding: EdgeInsets.fromLTRB(16, 20, 16, 24),
+                padding: const EdgeInsets.fromLTRB(16, 20, 16, 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const [
                               Text("Hai Siti",
                                   style: TextStyle(
                                       fontSize: 18,
@@ -89,44 +89,13 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Color(0xffFBC7D0),
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 4,
-                            offset: Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/icon_bayi.png', width: 50),
-                          SizedBox(width: 12),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Hoylie Westervelt",
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              Text("1 year 6 Months 24 days",
-                                  style: TextStyle(color: Colors.grey[700])),
-                              Text("Normal",
-                                  style: TextStyle(color: Colors.green)),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
+                    const SizedBox(height: 20),
+                    _dataAnak(),
                   ],
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Jadwal Mendatang
               Padding(
@@ -141,30 +110,28 @@ class _HomeState extends State<Home> {
                             color: mainColor)),
                     TextButton(
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           'Lihat Semua',
                           style: TextStyle(color: Colors.blue),
                         ))
                   ],
                 ),
               ),
-              SizedBox(height: 2),
+              const SizedBox(height: 2),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Container(
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: mainColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text("Posyandu Bulu Lor",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -176,7 +143,7 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
                         child: Image.asset(
@@ -191,36 +158,36 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Icon Menu
-   Row(
-  mainAxisAlignment: MainAxisAlignment.spaceAround,
-  children: [
-    _menuAssetIcon("assets/icon_sbhm.png", "SBHM"),
-    _menuAssetIcon("assets/icon_sikecil.png", "Sikecil"),
-    _menuAssetIcon("assets/icon_nutrisi.png", "Nutrisi"),
-    _menuAssetIcon("assets/icon_tips_ibu.png", "Tips Ibu"),
-  ],
-),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _menuAssetIcon("assets/icon_sbhm.png", "SBHM"),
+                  _menuAssetIcon("assets/icon_sikecil.png", "Sikecil"),
+                  _menuAssetIcon("assets/icon_nutrisi.png", "Nutrisi"),
+                  _menuAssetIcon("assets/icon_tips_ibu.png", "Tips Ibu"),
+                ],
+              ),
 
-
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               // Komunitas
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text("Popular Komunitas",
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    TextButton(onPressed: (){}, child: Text('See all',style: TextStyle(color: Colors.blue, fontSize: 15),))
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('See all',
+                        style: TextStyle(color: Colors.blue, fontSize: 15)),
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Container(
                 height: 140,
                 padding: const EdgeInsets.only(left: 16),
@@ -235,22 +202,23 @@ class _HomeState extends State<Home> {
                 ),
               ),
 
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               // Artikel Terbaru
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text("Artikel Terbaru",
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    TextButton(onPressed: (){}, child: Text('See all', style: TextStyle(color: Colors.blue, fontSize: 15),))
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('See all',
+                        style: TextStyle(color: Colors.blue, fontSize: 15)),
                   ],
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Container(
                 height: 120,
                 padding: const EdgeInsets.only(left: 16),
@@ -271,42 +239,62 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _menuAssetIcon(String assetPath, String label) {
-  return Column(
-    children: [
-      Container(
-        padding: EdgeInsets.all(12),
-        child: Image.asset(
-          assetPath,
-          width: 28,
-          height: 28,
-          fit: BoxFit.contain,
+  Widget _dataAnak() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const GrowthDetailPage()),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: const Color(0xffFBC7D0),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Image.asset('assets/icon_bayi.png', width: 50),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text("Hoylie Westervelt",
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text("1 year 6 Months 24 days",
+                    style: TextStyle(color: Colors.black54)),
+                Text("Normal", style: TextStyle(color: Colors.green)),
+              ],
+            )
+          ],
         ),
       ),
-      SizedBox(height: 6),
-      Text(label, style: TextStyle(fontSize: 12)),
-    ],
-  );
-}
+    );
+  }
 
-
-  Widget _menuIcon(IconData icon, String label) {
+  Widget _menuAssetIcon(String assetPath, String label) {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [mainColor, gradientColor],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            shape: BoxShape.circle,
+          padding: const EdgeInsets.all(12),
+          child: Image.asset(
+            assetPath,
+            width: 28,
+            height: 28,
+            fit: BoxFit.contain,
           ),
-          padding: EdgeInsets.all(12),
-          child: Icon(icon, color: Colors.white),
         ),
-        SizedBox(height: 6),
-        Text(label, style: TextStyle(fontSize: 12)),
+        const SizedBox(height: 6),
+        Text(label, style: const TextStyle(fontSize: 12)),
       ],
     );
   }
@@ -314,12 +302,12 @@ class _HomeState extends State<Home> {
   Widget _communityCardHorizontal(String user, String title, String tag) {
     return Container(
       width: 260,
-      margin: EdgeInsets.only(right: 12),
-      padding: EdgeInsets.all(12),
+      margin: const EdgeInsets.only(right: 12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 4,
@@ -336,19 +324,19 @@ class _HomeState extends State<Home> {
                 backgroundColor: gradientColor.withOpacity(0.2),
                 child: Icon(Icons.person, color: mainColor),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Expanded(
                 child: Text(user,
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
               )
             ],
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14)),
-          SizedBox(height: 6),
+              style: const TextStyle(fontSize: 14)),
+          const SizedBox(height: 6),
           Text(tag, style: TextStyle(color: mainColor, fontSize: 12)),
         ],
       ),
@@ -358,12 +346,12 @@ class _HomeState extends State<Home> {
   Widget _articleCardHorizontal(String title, String tag) {
     return Container(
       width: 260,
-      margin: EdgeInsets.only(right: 12),
-      padding: EdgeInsets.all(12),
+      margin: const EdgeInsets.only(right: 12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 4,
@@ -384,9 +372,9 @@ class _HomeState extends State<Home> {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(Icons.food_bank, color: Colors.white),
+            child: const Icon(Icons.food_bank, color: Colors.white),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -394,8 +382,8 @@ class _HomeState extends State<Home> {
                 Text(title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.w500)),
-                SizedBox(height: 4),
+                    style: const TextStyle(fontWeight: FontWeight.w500)),
+                const SizedBox(height: 4),
                 Text(tag, style: TextStyle(color: mainColor, fontSize: 12)),
               ],
             ),
