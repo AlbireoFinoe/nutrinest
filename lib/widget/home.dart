@@ -13,26 +13,50 @@ class _HomeState extends State<Home> {
 
   final List<Map<String, String>> communityData = [
     {
-      "user": "Maria Amiroff",
-      "title": "Bagaimana cara menangani anak yang mengantuk?",
-      "tag": "Pengasuhan"
+      "user": "Maria Aminoff",
+      "title": "Bagaimana cara menangani anak yang mengamuk?",
+      "tag": "Pengasuhan",
+      "color": "0xFF93C9C1", // Add color for tag
+      "description":
+          "Menghadapi anak yang sedang mengamuk tidaklah mudah, jika suasana hati Anda sedang buruk, Anda akan menghadapi situasi ini dengan lebih sulit. Cobalah untuk tetap tenang dan cari tahu penyebabnya.",
+      "comments": "1249", // Add comments
+      "stats": "191", // Add stats
     },
     {
       "user": "Marley Septimus",
       "title":
           "Berat badan anak saya tidak bertambah, apa yang harus saya lakukan?",
-      "tag": "Pertumbuhan"
+      "tag": "Nutrisi",
+      "color": "0xFFFFE0AB", // Add color for tag
+      "description":
+          "Berat badan anak yang lambat bertambah, mungkin merupakan masalah yang serius. Anda perlu mencari tahu penyebabnya dan mencari solusi yang tepat. Berikut adalah beberapa langkah yang dapat Anda lakukan.",
+      "comments": "1249", // Add comments
+      "stats": "72", // Add stats
     },
   ];
 
   final List<Map<String, String>> articleData = [
     {
-      "title": "Apakah Anda merasa bosan menyantap nasi di malam hari?",
-      "tag": "Nutrisi"
+      "title":
+          "Apakah Anda merasa bosan menyantap nasi di malam hari saja karena sudah terlalu sering?",
+      "tag": "Nutrisi",
+      "image": 'assets/imgtikel4.png',
+      "date": '04 Nov 2024',
+      "views": '72',
+      "color": "0xFFA2CAFF",
+      "description":
+          "Nasi tentu menjadi pilihan utama untuk memenuhi kebutuhan energi harian kita, terutama di Indonesia. akan tetapi, jika Anda merasa bosan menyantap nasi di malam hari saja karena sudah terlalu sering, Anda bisa mencoba alternatif lain yang"
     },
     {
-      "title": "Apakah anak merasa bosan menyantap nasi di malam hari?",
-      "tag": "Pengasuhan"
+      "title":
+          "Apakah Anda merasa bosan menyantap nasi di malam hari saja karena sudah terlalu sering?",
+      "tag": "Pengasuhan",
+      "image": 'assets/imgtikel5.png',
+      "date": '04 Nov 2024',
+      "views": '72',
+      "color": "0xFF93C9C1",
+      "description":
+          "Nasi tentu menjadi pilihan utama untuk memenuhi kebutuhan energi harian kita, terutama di Indonesia. akan tetapi, jika Anda merasa bosan menyantap nasi di malam hari saja karena sudah terlalu sering, Anda bisa mencoba alternatif lain yang"
     },
   ];
 
@@ -194,214 +218,346 @@ class _HomeState extends State<Home> {
               SizedBox(height: 20),
 
               // Icon Menu
-   Row(
-  mainAxisAlignment: MainAxisAlignment.spaceAround,
-  children: [
-    _menuAssetIcon("assets/icon_sbhm.png", "SBHM"),
-    _menuAssetIcon("assets/icon_sikecil.png", "Sikecil"),
-    _menuAssetIcon("assets/icon_nutrisi.png", "Nutrisi"),
-    _menuAssetIcon("assets/icon_tips_ibu.png", "Tips Ibu"),
-  ],
-),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _menuAssetIcon("assets/icon_sbhm.png", "SBHM"),
+                  _menuAssetIcon("assets/icon_sikecil.png", "Sikecil"),
+                  _menuAssetIcon("assets/icon_nutrisi.png", "Nutrisi"),
+                  _menuAssetIcon("assets/icon_tips_ibu.png", "Tips Ibu"),
+                ],
+              ),
 
-
-              SizedBox(height: 24),
+              SizedBox(height: 20),
 
               // Komunitas
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Column(
                   children: [
-                    Text("Popular Komunitas",
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    TextButton(onPressed: (){}, child: Text('See all',style: TextStyle(color: Colors.blue, fontSize: 15),))
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Komunitas',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('See All',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              )),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      height: 300,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.all(4.0),
+                        itemCount: communityData.length,
+                        itemBuilder: (context, index) {
+                          var community = communityData[index];
+                          return _communityCard(
+                            community['user']!,
+                            community['title']!,
+                            community['tag']!,
+                            community['color']!,
+                            community['description']!,
+                            community['comments']!,
+                            community['stats']!,
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    // Artikel
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Artikel Terbaru',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('See All',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              )),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      height: 300,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.all(4.0),
+                        itemCount: articleData.length,
+                        itemBuilder: (context, index) {
+                          var article = articleData[index];
+                          return _articleCard(
+                            article['title']!,
+                            article['tag']!,
+                            article['color']!,
+                            article['description']!,
+                            article['image']!,
+                            article['date']!,
+                            article['views']!,
+                          );
+                        },
+                      ),
+                    ),
                   ],
-                ),
-              ),
-              SizedBox(height: 12),
-              Container(
-                height: 140,
-                padding: const EdgeInsets.only(left: 16),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: communityData.length,
-                  itemBuilder: (context, index) {
-                    final item = communityData[index];
-                    return _communityCardHorizontal(
-                        item['user']!, item['title']!, item['tag']!);
-                  },
-                ),
-              ),
-
-              SizedBox(height: 24),
-
-              // Artikel Terbaru
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Artikel Terbaru",
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    TextButton(onPressed: (){}, child: Text('See all', style: TextStyle(color: Colors.blue, fontSize: 15),))
-                  ],
-                ),
-              ),
-              SizedBox(height: 12),
-              Container(
-                height: 120,
-                padding: const EdgeInsets.only(left: 16),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: articleData.length,
-                  itemBuilder: (context, index) {
-                    final item = articleData[index];
-                    return _articleCardHorizontal(
-                        item['title']!, item['tag']!);
-                  },
                 ),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  // Community Card
+  Widget _communityCard(String user, String title, String tag, String color,
+      String description, String comments, String stats) {
+    return Card(
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Container(
+        color: Colors.white,
+        width: 210,
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header (avatar, name, date)
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage('assets/profile.png'),
+                ),
+                SizedBox(width: 8),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      user,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      'Parents - 4 Nov 2024',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+              decoration: BoxDecoration(
+                color: Color(int.parse(color)),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                tag,
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
+              maxLines: 3, // Limit it to 3 lines
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(height: 10),
+            // Expanded Description
+            Expanded(
+              child: Text(
+                description,
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 6,
+              ),
+            ),
+            SizedBox(height: 8),
+            Row(
+              children: [
+                Image.asset('assets/komen.png'),
+                SizedBox(width: 4),
+                Text(comments,
+                    style: TextStyle(fontSize: 10, color: Colors.grey)),
+                SizedBox(width: 16),
+                Image.asset('assets/stats.png'),
+                SizedBox(width: 4),
+                Text(stats, style: TextStyle(fontSize: 10, color: Colors.grey)),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+// Article Card
+  Widget _articleCard(String title, String tag, String color,
+      String description, String image, String date, String views) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Container(
+        color: Colors.white,
+        width: 210,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(12.0),
+              ),
+              child: Image.asset(
+                image,
+                width: double.infinity,
+                height: 90,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                      decoration: BoxDecoration(
+                        color: Color(int.parse(color)),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        tag,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      description,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 4,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    date,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Row(
+                    children: [
+                      Image.asset('assets/view.png'),
+                      const SizedBox(width: 4),
+                      Text(
+                        views,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget _menuAssetIcon(String assetPath, String label) {
-  return Column(
-    children: [
-      Container(
-        padding: EdgeInsets.all(12),
-        child: Image.asset(
-          assetPath,
-          width: 28,
-          height: 28,
-          fit: BoxFit.contain,
-        ),
-      ),
-      SizedBox(height: 6),
-      Text(label, style: TextStyle(fontSize: 12)),
-    ],
-  );
-}
-
-
-  Widget _menuIcon(IconData icon, String label) {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [mainColor, gradientColor],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            shape: BoxShape.circle,
-          ),
           padding: EdgeInsets.all(12),
-          child: Icon(icon, color: Colors.white),
+          child: Image.asset(
+            assetPath,
+            width: 28,
+            height: 28,
+            fit: BoxFit.contain,
+          ),
         ),
         SizedBox(height: 6),
         Text(label, style: TextStyle(fontSize: 12)),
       ],
-    );
-  }
-
-  Widget _communityCardHorizontal(String user, String title, String tag) {
-    return Container(
-      width: 260,
-      margin: EdgeInsets.only(right: 12),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                backgroundColor: gradientColor.withOpacity(0.2),
-                child: Icon(Icons.person, color: mainColor),
-              ),
-              SizedBox(width: 10),
-              Expanded(
-                child: Text(user,
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-              )
-            ],
-          ),
-          SizedBox(height: 8),
-          Text(title,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14)),
-          SizedBox(height: 6),
-          Text(tag, style: TextStyle(color: mainColor, fontSize: 12)),
-        ],
-      ),
-    );
-  }
-
-  Widget _articleCardHorizontal(String title, String tag) {
-    return Container(
-      width: 260,
-      margin: EdgeInsets.only(right: 12),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            height: 60,
-            width: 60,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [mainColor, gradientColor],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(Icons.food_bank, color: Colors.white),
-          ),
-          SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.w500)),
-                SizedBox(height: 4),
-                Text(tag, style: TextStyle(color: mainColor, fontSize: 12)),
-              ],
-            ),
-          )
-        ],
-      ),
     );
   }
 }
