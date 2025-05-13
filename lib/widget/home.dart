@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nutrinest_app/page/notif.dart';
 import '../page/growth_detail.dart';
 
 class Home extends StatefulWidget {
@@ -82,10 +83,19 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                         ),
-                        Image.asset(
-                          'assets/notifikasi.png',
-                          width: 28,
-                          height: 28,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NotfPage()),
+                            );
+                          },
+                          child: Image.asset(
+                            'assets/notifikasi.png',
+                            width: 28,
+                            height: 28,
+                          ),
                         ),
                       ],
                     ),
@@ -227,8 +237,7 @@ class _HomeState extends State<Home> {
                   itemCount: articleData.length,
                   itemBuilder: (context, index) {
                     final item = articleData[index];
-                    return _articleCardHorizontal(
-                        item['title']!, item['tag']!);
+                    return _articleCardHorizontal(item['title']!, item['tag']!);
                   },
                 ),
               ),
