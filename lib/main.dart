@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutrinest_app/page/login_page.dart';
 import 'package:nutrinest_app/page/notif.dart';
+import 'package:nutrinest_app/pages/dataibu.dart';
 
 void main() {
   runApp(const MyApp());
