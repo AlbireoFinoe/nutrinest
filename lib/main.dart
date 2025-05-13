@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:nutrinest_app/pages/dataibuPage.dart';
+import 'package:nutrinest_app/pages/dataibu.dart';
 
 void main() {
   runApp(const MyApp());

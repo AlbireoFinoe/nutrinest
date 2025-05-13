@@ -9,9 +9,8 @@ class Dataibupage extends StatefulWidget {
 }
 
 class _DataibupageState extends State<Dataibupage> {
-  // Define the controller for the DatePicker field
   TextEditingController _dateController = TextEditingController();
-  String? _selectedStatus; // Variable to hold the selected dropdown value
+  String? _selectedStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +31,9 @@ class _DataibupageState extends State<Dataibupage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 24.0, vertical: 10.0), // Padding for the entire body
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10.0),
           child: Column(
             children: [
-              // No Telepon
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -47,8 +44,7 @@ class _DataibupageState extends State<Dataibupage> {
                   ),
                 ),
               ),
-              SizedBox(
-                  height: 8.0), // Space between the label and the text field
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Masukkan No. Telepon',
@@ -56,32 +52,27 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFF83758), // Warna border saat fokus
+                      color: Color(0xFFF83758),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
-                  fontSize: 12.0, // Mengatur ukuran font teks input
+                  fontSize: 12.0,
                 ),
-                keyboardType: TextInputType.number, // Memungkinkan hanya angka
+                keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter
-                      .digitsOnly, // Membatasi input hanya angka
+                  FilteringTextInputFormatter.digitsOnly,
                 ],
               ),
-              SizedBox(height: 16.0), // Space between text field and button
-
-              // Tanggal Lahir
+              SizedBox(height: 16.0),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text('Tanggal Lahir',
@@ -90,8 +81,7 @@ class _DataibupageState extends State<Dataibupage> {
                       fontWeight: FontWeight.w600,
                     )),
               ),
-              SizedBox(
-                  height: 8.0), // Space between the label and the text field
+              SizedBox(height: 8.0),
               TextField(
                 controller: _dateController,
                 decoration: InputDecoration(
@@ -100,27 +90,23 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color.fromARGB(
-                          255, 99, 61, 67), // Warna border saat fokus
+                      color: Color.fromARGB(255, 99, 61, 67),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
                   fontSize: 12.0,
-                  fontWeight:
-                      FontWeight.w400, // Mengatur ukuran font teks input
+                  fontWeight: FontWeight.w400,
                 ),
-                readOnly: true, // Menghindari keyboard muncul
+                readOnly: true,
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
                     context: context,
@@ -134,9 +120,7 @@ class _DataibupageState extends State<Dataibupage> {
                   }
                 },
               ),
-              SizedBox(height: 16.0), // Space between text field and button
-
-              // Alamat Lengkap
+              SizedBox(height: 16.0),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text('Alamat Lengkap',
@@ -145,8 +129,7 @@ class _DataibupageState extends State<Dataibupage> {
                       fontWeight: FontWeight.w600,
                     )),
               ),
-              SizedBox(
-                  height: 8.0), // Space between the label and the text field
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Masukkan Alamat',
@@ -154,29 +137,24 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFF83758), // Warna border saat fokus
+                      color: Color(0xFFF83758),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
                   fontSize: 12.0,
-                  fontWeight:
-                      FontWeight.w400, // Mengatur ukuran font teks input
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 16.0), // Space between text field and button
-
-              // Status Ibu - Dropdown
+              SizedBox(height: 16.0),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text('Status Ibu',
@@ -185,7 +163,7 @@ class _DataibupageState extends State<Dataibupage> {
                       fontWeight: FontWeight.w600,
                     )),
               ),
-              SizedBox(height: 8.0), // Space between the label and the dropdown
+              SizedBox(height: 8.0),
               DropdownButtonFormField<String>(
                 value: _selectedStatus,
                 decoration: InputDecoration(
@@ -194,24 +172,21 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFF83758), // Warna border saat fokus
+                      color: Color(0xFFF83758),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
                   fontSize: 12.0,
-                  fontWeight:
-                      FontWeight.w400, // Mengatur ukuran font teks input
+                  fontWeight: FontWeight.w400,
                 ),
                 items: <String>[
                   'Hamil',
@@ -235,12 +210,9 @@ class _DataibupageState extends State<Dataibupage> {
                     _selectedStatus = newValue;
                   });
                 },
-
-                // Customizing the dropdown appearance
-                dropdownColor: Colors.white, // Background color of the dropdown
+                dropdownColor: Colors.white,
               ),
-              SizedBox(height: 16.0), // Space between dropdown and other fields
-              // Alamat Lengkap
+              SizedBox(height: 16.0),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text('Jumlah Anak',
@@ -249,8 +221,7 @@ class _DataibupageState extends State<Dataibupage> {
                       fontWeight: FontWeight.w600,
                     )),
               ),
-              SizedBox(
-                  height: 8.0), // Space between the label and the text field
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Number',
@@ -258,24 +229,21 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFF83758), // Warna border saat fokus
+                      color: Color(0xFFF83758),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
                   fontSize: 12.0,
-                  fontWeight:
-                      FontWeight.w400, // Mengatur ukuran font teks input
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(height: 16.0),
@@ -287,8 +255,7 @@ class _DataibupageState extends State<Dataibupage> {
                       fontWeight: FontWeight.w600,
                     )),
               ),
-              SizedBox(
-                  height: 8.0), // Space between the label and the text field
+              SizedBox(height: 8.0),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Masukkan Pekerjaan Ibu',
@@ -296,27 +263,24 @@ class _DataibupageState extends State<Dataibupage> {
                       TextStyle(fontSize: 12.0, fontWeight: FontWeight.w400),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0xFFF83758), // Warna border saat fokus
+                      color: Color(0xFFF83758),
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey,
-                      width: 1.0, // Warna border saat tidak fokus
+                      width: 1.0,
                     ),
-                    borderRadius:
-                        BorderRadius.circular(12.0), // Radius sudut border
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
                 style: TextStyle(
                   fontSize: 12.0,
-                  fontWeight:
-                      FontWeight.w400, // Mengatur ukuran font teks input
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 24.0), // Space between text field and button
+              SizedBox(height: 24.0),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: ElevatedButton(
